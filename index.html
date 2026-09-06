@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bryan Delgado (Bryandero98) — Portafolio</title>
+  <meta name="description" content="Portafolio de Bryan Delgado (Bryandero98): contribuciones open-source y herramientas propias." />
+  <meta name="author" content="Bryan Delgado" />
+  <meta name="theme-color" content="#0d1117" />
+  <link rel="canonical" href="https://bryandero98.github.io/" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+  <!-- Open Graph / vista previa al compartir el link -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Bryan Delgado (Bryandero98) — Portafolio" />
+  <meta property="og:description" content="49 pull requests mergeados en 13 repositorios open-source, más herramientas propias publicadas." />
+  <meta property="og:url" content="https://bryandero98.github.io/" />
+  <meta property="og:image" content="https://bryandero98.github.io/assets/social-card.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Bryan Delgado (Bryandero98) — Portafolio" />
+  <meta name="twitter:description" content="49 pull requests mergeados en 13 repositorios open-source, más herramientas propias publicadas." />
+  <meta name="twitter:image" content="https://bryandero98.github.io/assets/social-card.png" />
+
+  <!-- Datos estructurados para buscadores -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Bryan Delgado",
+    "alternateName": "Bryandero98",
+    "url": "https://bryandero98.github.io/",
+    "sameAs": ["https://github.com/Bryandero98"],
+    "jobTitle": "Open-source contributor",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "CO"
+    }
+  }
+  </script>
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Aplica el tema guardado ANTES del primer pintado, para que no haya
+       parpadeo de tema equivocado. El idioma sí puede parpadear brevemente
+       (el texto se reemplaza tras cargar i18n.js): evitarlo del todo
+       exigiría generar una versión de HTML por idioma, lo que rompería la
+       decisión de mantener el sitio sin build step. -->
+  <script>
+    (function () {
+      try {
+        var theme = localStorage.getItem("bryandero98:theme");
+        if (theme === "dark" || theme === "light") {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+        var lang = localStorage.getItem("bryandero98:lang");
+        if (lang === "es" || lang === "en") {
+          document.documentElement.setAttribute("lang", lang);
+        }
+      } catch (e) {
+        /* localStorage bloqueado (modo privado, etc.) - se usan los valores por defecto */
+      }
+    })();
+  </script>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content" data-i18n="a11y.skipLink">Saltar al contenido</a>
+  <div id="a11yAnnouncer" class="sr-only" aria-live="polite"></div>
+
+  <header class="site-header">
+    <div class="brand">bryandero98<span class="cursor">_</span></div>
+    <nav class="site-nav" data-i18n-attr="aria-label:nav.sectionsLabel" aria-label="Secciones de la página">
+      <a href="#projects" data-i18n="nav.projects">Proyectos</a>
+      <a href="#contributions" data-i18n="nav.contributions">Contribuciones</a>
+      <a href="#in-progress" data-i18n="nav.inProgress">En curso</a>
+      <a href="#contact" data-i18n="nav.contact">Contacto</a>
+    </nav>
+    <nav class="header-actions" data-i18n-attr="aria-label:nav.actionsLabel" aria-label="Acciones de la página">
+      <button id="langToggle" class="btn-icon" type="button" aria-label="EN — Cambiar idioma">
+        <span id="langToggleText">EN</span>
+      </button>
+      <button id="themeToggle" class="btn-icon" type="button" data-i18n-attr="aria-label:nav.themeToggleLabel" aria-label="Cambiar tema">
+        <span id="themeToggleIcon" aria-hidden="true">&#9789;</span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="main-content" tabindex="-1">
+
+    <!-- ===== HERO ===== -->
+    <section id="hero" class="section hero">
+      <p class="terminal-line">
+        <span class="prompt">bryandero98@portfolio</span>:<span class="path">~$</span>
+        <span data-i18n="hero.command">whoami</span>
+      </p>
+      <img
+        class="avatar"
+        src="https://avatars.githubusercontent.com/u/124054031?v=4"
+        width="72"
+        height="72"
+        alt="Bryan Delgado"
+        loading="eager"
+      />
+      <h1 data-i18n="hero.title">Bryan Delgado</h1>
+      <p class="tagline" data-i18n="hero.tagline">
+        Contribuidor open-source · construyo herramientas pequeñas y locales, y voy resolviendo buenos issues por el camino.
+      </p>
+      <a
+        class="counter-badge"
+        href="https://github.com/search?q=is%3Apr+is%3Amerged+author%3ABryandero98&type=pullrequests"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <strong id="prCount">49</strong>
+        <span data-i18n="hero.counterLabel">PRs mergeados en 13 repositorios</span>
+      </a>
+    </section>
+
+    <!-- ===== PERFIL ===== -->
+    <section id="profile" class="section">
+      <h2 data-i18n="profile.heading">Sobre mí</h2>
+      <p data-i18n="profile.body">
+        Escribo código open-source desde Colombia. La mayor parte de mi trabajo son
+        correcciones y mejoras concretas dentro de proyectos ya existentes — bugs
+        reales, tests que faltaban, endpoints mal validados — y, en paralelo, un puñado
+        de herramientas propias que publico cuando quedan listas para que alguien más
+        las use.
+      </p>
+    </section>
+
+    <!-- ===== PROYECTOS PROPIOS ===== -->
+    <section id="projects" class="section">
+      <h2 data-i18n="projects.heading">Proyectos propios</h2>
+      <div class="tech-filter" id="techFilter" role="group" data-i18n-attr="aria-label:projects.filterLabel" aria-label="Filtrar proyectos por tecnología">
+        <button type="button" class="filter-chip active" data-filter="all" data-i18n="projects.filterAll">Todos</button>
+      </div>
+      <div class="card-grid">
+
+        <article class="card" data-tags="node,mcp,gemini">
+          <h3>PacketForge</h3>
+          <p data-i18n="projects.packetforge.desc">
+            Servidor MCP en producción con dashboard multi-proyecto, embeddings de
+            Gemini y rate limiting propio.
+          </p>
+          <a href="https://packetforge.onrender.com" target="_blank" rel="noopener noreferrer" data-i18n="projects.packetforge.cta">
+            Ver en vivo →
+          </a>
+          <div class="tech-chips">
+            <span class="chip" data-tag="node">Node.js</span>
+            <span class="chip" data-tag="mcp">MCP</span>
+            <span class="chip" data-tag="gemini">Gemini API</span>
+          </div>
+        </article>
+
+        <article class="card" data-tags="python,whisper,ffmpeg">
+          <h3>
+            CaptionForge
+            <a href="https://pypi.org/project/captionforge/" target="_blank" rel="noopener noreferrer" class="badge-link">
+              <img src="https://img.shields.io/pypi/v/captionforge" alt="Versión en PyPI de captionforge" width="78" height="20" loading="lazy" />
+            </a>
+          </h3>
+          <p data-i18n="projects.captionforge.desc">
+            Generador local de subtítulos con faster-whisper + ffmpeg. Publicado en
+            PyPI, 140/140 tests en verde.
+          </p>
+          <div class="cta-row">
+            <a href="https://pypi.org/project/captionforge/" target="_blank" rel="noopener noreferrer" data-i18n="projects.captionforge.cta">
+              pip install captionforge →
+            </a>
+            <button type="button" class="copy-btn" data-copy="pip install captionforge" data-i18n-attr="aria-label:a11y.copyLabel" aria-label="Copiar comando">⧉</button>
+          </div>
+          <div class="tech-chips">
+            <span class="chip" data-tag="python">Python</span>
+            <span class="chip" data-tag="whisper">faster-whisper</span>
+            <span class="chip" data-tag="ffmpeg">ffmpeg</span>
+          </div>
+        </article>
+
+        <article class="card" data-tags="node,npm,actions">
+          <h3>
+            cliguard
+            <a href="https://www.npmjs.com/package/cliguard" target="_blank" rel="noopener noreferrer" class="badge-link">
+              <img src="https://img.shields.io/npm/v/cliguard" alt="Versión en npm de cliguard" width="80" height="20" loading="lazy" />
+            </a>
+          </h3>
+          <p data-i18n="projects.cliguard.desc">
+            Herramienta de línea de comandos publicada en npm, con CI verde en 9/9
+            combinaciones de plataforma/versión de Node.
+          </p>
+          <div class="cta-row">
+            <a href="https://www.npmjs.com/package/cliguard" target="_blank" rel="noopener noreferrer" data-i18n="projects.cliguard.cta">
+              npx cliguard →
+            </a>
+            <button type="button" class="copy-btn" data-copy="npx cliguard" data-i18n-attr="aria-label:a11y.copyLabel" aria-label="Copiar comando">⧉</button>
+          </div>
+          <div class="tech-chips">
+            <span class="chip" data-tag="node">Node.js</span>
+            <span class="chip" data-tag="npm">npm</span>
+            <span class="chip" data-tag="actions">GitHub Actions</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===== CONTRIBUCIONES OPEN-SOURCE ===== -->
+    <section id="contributions" class="section">
+      <h2 data-i18n="contributions.heading">Contribuciones open-source</h2>
+      <p data-i18n="contributions.intro">
+        49 pull requests mergeados, verificables en vivo en GitHub con un clic en cada
+        contador.
+      </p>
+
+      <img
+        id="activityChart"
+        class="activity-chart"
+        src="assets/activity-dark.svg"
+        alt="Gráfico de PRs mergeados por mes, últimos 12 meses"
+        width="720"
+        height="160"
+        loading="lazy"
+      />
+
+      <div class="card-grid contributions-grid" id="contributionsGrid">
+
+        <a class="contrib-card" data-repo-key="portos" href="https://github.com/atomantic/PortOS/pulls?q=is%3Apr+is%3Amerged+author%3ABryandero98" target="_blank" rel="noopener noreferrer">
+          <strong>25</strong>
+          <span>PortOS</span>
+        </a>
+
+        <a class="contrib-card" data-repo-key="hedgehog" href="https://github.com/search?q=is%3Apr+is%3Amerged+author%3ABryandero98+org%3Askyf0xx&type=pullrequests" target="_blank" rel="noopener noreferrer">
+          <strong>17</strong>
+          <span data-i18n="contributions.hedgehog.label">hedgehog + ecosistema</span>
+        </a>
+
+        <a class="contrib-card" data-repo-key="athlead" href="https://github.com/Harsh-vardhan09/AthLead/pulls?q=is%3Apr+is%3Amerged+author%3ABryandero98" target="_blank" rel="noopener noreferrer">
+          <strong>2</strong>
+          <span>AthLead</span>
+        </a>
+
+        <a class="contrib-card" data-repo-key="huihui" href="https://github.com/chiffon-0504/huihui.dev-beta/pulls?q=is%3Apr+is%3Amerged+author%3ABryandero98" target="_blank" rel="noopener noreferrer">
+          <strong>2</strong>
+          <span>huihui.dev-beta</span>
+        </a>
+
+        <a class="contrib-card" data-repo-key="gridcraft" href="https://github.com/Rohan-Shridhar/gridcraft/pulls?q=is%3Apr+is%3Amerged+author%3ABryandero98" target="_blank" rel="noopener noreferrer">
+          <strong>1</strong>
+          <span>gridcraft</span>
+        </a>
+
+        <a class="contrib-card" data-repo-key="classhub" href="https://github.com/Hanu2908/ClassHub/pulls?q=is%3Apr+is%3Amerged+author%3ABryandero98" target="_blank" rel="noopener noreferrer">
+          <strong>1</strong>
+          <span>ClassHub</span>
+        </a>
+
+        <a class="contrib-card" data-repo-key="maka" href="https://github.com/apache/maka/pulls?q=is%3Apr+is%3Amerged+author%3ABryandero98" target="_blank" rel="noopener noreferrer">
+          <strong>1</strong>
+          <span>maka</span>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ===== STACK TÉCNICO ===== -->
+    <section id="stack" class="section">
+      <h2 data-i18n="stack.heading">Stack técnico</h2>
+      <ul class="stack-list">
+        <li>TypeScript / Node.js</li>
+        <li>Python</li>
+        <li>React / Gatsby</li>
+        <li>GitHub Actions · CI</li>
+        <li>MCP (Model Context Protocol)</li>
+      </ul>
+    </section>
+
+    <!-- ===== EN CURSO AHORA ===== -->
+    <section id="in-progress" class="section">
+      <h2 data-i18n="inprogress.heading">En curso ahora</h2>
+      <p data-i18n="inprogress.intro">
+        Pull requests abiertos esperando revisión del mantenedor, en el momento de
+        publicar esta página.
+      </p>
+      <ul class="pr-list" id="prList">
+        <li><a href="https://github.com/layer5io/layer5/pull/8024" target="_blank" rel="noopener noreferrer">layer5io/layer5 #8024</a></li>
+        <li><a href="https://github.com/layer5io/layer5/pull/8023" target="_blank" rel="noopener noreferrer">layer5io/layer5 #8023</a></li>
+        <li><a href="https://github.com/layer5io/layer5/pull/8022" target="_blank" rel="noopener noreferrer">layer5io/layer5 #8022</a></li>
+        <li><a href="https://github.com/pradipNP/drawora/pull/23" target="_blank" rel="noopener noreferrer">pradipNP/drawora #23</a></li>
+        <li><a href="https://github.com/cardano-foundation/cardano-org/pull/838" target="_blank" rel="noopener noreferrer">cardano-foundation/cardano-org #838</a></li>
+        <li><a href="https://github.com/ajuan7/vervue/pull/10" target="_blank" rel="noopener noreferrer">ajuan7/vervue #10</a></li>
+        <li><a href="https://github.com/ZoranPandovski/awesome-testing-tools/pull/139" target="_blank" rel="noopener noreferrer">ZoranPandovski/awesome-testing-tools #139</a></li>
+        <li><a href="https://github.com/argosopentech/argos-translate/pull/539" target="_blank" rel="noopener noreferrer">argosopentech/argos-translate #539</a></li>
+        <li><a href="https://github.com/SYSTRAN/faster-whisper/pull/1484" target="_blank" rel="noopener noreferrer">SYSTRAN/faster-whisper #1484</a></li>
+        <li><a href="https://github.com/cacjs/cac/pull/174" target="_blank" rel="noopener noreferrer">cacjs/cac #174</a></li>
+        <li><a href="https://github.com/drizzle-team/drizzle-orm-docs/pull/713" target="_blank" rel="noopener noreferrer">drizzle-team/drizzle-orm-docs #713</a></li>
+        <li><a href="https://github.com/F3-Nation/f3-nation/pull/902" target="_blank" rel="noopener noreferrer">F3-Nation/f3-nation #902</a></li>
+        <li><a href="https://github.com/drizzle-team/drizzle-orm/pull/6184" target="_blank" rel="noopener noreferrer">drizzle-team/drizzle-orm #6184</a></li>
+        <li><a href="https://github.com/twentyhq/twenty/pull/24880" target="_blank" rel="noopener noreferrer">twentyhq/twenty #24880</a></li>
+        <li><a href="https://github.com/SmartDropLabs/smartdrop-frontend/pull/246" target="_blank" rel="noopener noreferrer">SmartDropLabs/smartdrop-frontend #246</a></li>
+        <li><a href="https://github.com/antgrid-ai/antgrid/pull/8" target="_blank" rel="noopener noreferrer">antgrid-ai/antgrid #8</a></li>
+      </ul>
+    </section>
+
+    <!-- ===== CONTACTO ===== -->
+    <section id="contact" class="section">
+      <h2 data-i18n="contact.heading">Contacto</h2>
+      <p data-i18n="contact.body">
+        La forma más directa de encontrar mi trabajo y contactarme es a través de
+        GitHub.
+      </p>
+      <div class="contact-links">
+        <a class="contact-link" href="https://github.com/Bryandero98" target="_blank" rel="noopener noreferrer">
+          github.com/Bryandero98
+        </a>
+        <a class="contact-link" href="https://www.linkedin.com/in/bryan-delgado98" target="_blank" rel="noopener noreferrer">
+          linkedin.com/in/bryan-delgado98
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p data-i18n="footer.text">Hecho a mano, sin frameworks, por Bryandero98.</p>
+    <p class="footer-updated">
+      <span data-i18n="footer.updatedPrefix">Última actualización:</span>
+      <time datetime="2026-09">
+        <span data-i18n="footer.updatedDate">septiembre de 2026</span>
+      </time>
+    </p>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

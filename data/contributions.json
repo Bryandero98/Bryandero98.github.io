@@ -1,0 +1,140 @@
+{
+  "total": 49,
+  "updatedAt": "2026-09-06T02:32:26.779Z",
+  "repos": [
+    {
+      "key": "portos",
+      "label": "PortOS",
+      "count": 25,
+      "latest": {
+        "title": "feat: add a disabled-by-default Slotstream AI Providers preset",
+        "url": "https://github.com/atomantic/PortOS/pull/6223",
+        "number": 6223,
+        "repo": "atomantic/PortOS",
+        "mergedAt": "2026-09-04T17:11:08Z"
+      }
+    },
+    {
+      "key": "hedgehog",
+      "label": "hedgehog + ecosistema",
+      "count": 17,
+      "latest": {
+        "title": "feat(repro): assert every shipped core declares a pattern",
+        "url": "https://github.com/skyf0xx/hedgehog/pull/327",
+        "number": 327,
+        "repo": "skyf0xx/hedgehog",
+        "mergedAt": "2026-08-28T20:16:06Z"
+      }
+    },
+    {
+      "key": "athlead",
+      "label": "AthLead",
+      "count": 2,
+      "latest": {
+        "title": "Centralize date formatting in a shared dateFormatter utility",
+        "url": "https://github.com/Harsh-vardhan09/AthLead/pull/118",
+        "number": 118,
+        "repo": "Harsh-vardhan09/AthLead",
+        "mergedAt": "2026-08-26T19:12:45Z"
+      }
+    },
+    {
+      "key": "huihui",
+      "label": "huihui.dev-beta",
+      "count": 2,
+      "latest": {
+        "title": "test: cover localized About lightbox accessible names",
+        "url": "https://github.com/chiffon-0504/huihui.dev-beta/pull/179",
+        "number": 179,
+        "repo": "chiffon-0504/huihui.dev-beta",
+        "mergedAt": "2026-09-05T21:16:09Z"
+      }
+    },
+    {
+      "key": "gridcraft",
+      "label": "gridcraft",
+      "count": 1,
+      "latest": {
+        "title": "Enable undo/redo during preview mode",
+        "url": "https://github.com/Rohan-Shridhar/gridcraft/pull/105",
+        "number": 105,
+        "repo": "Rohan-Shridhar/gridcraft",
+        "mergedAt": "2026-08-26T08:02:54Z"
+      }
+    },
+    {
+      "key": "classhub",
+      "label": "ClassHub",
+      "count": 1,
+      "latest": {
+        "title": "feat(comments): add centralized character counter and length validation",
+        "url": "https://github.com/Hanu2908/ClassHub/pull/21",
+        "number": 21,
+        "repo": "Hanu2908/ClassHub",
+        "mergedAt": "2026-08-26T16:55:13Z"
+      }
+    },
+    {
+      "key": "maka",
+      "label": "maka",
+      "count": 1,
+      "latest": {
+        "title": "test(runtime-host): fix flaky startup failure test via native fake timers",
+        "url": "https://github.com/apache/maka/pull/3859",
+        "number": 3859,
+        "repo": "apache/maka",
+        "mergedAt": "2026-08-27T12:18:50Z"
+      }
+    }
+  ],
+  "monthly": [
+    {
+      "month": "2025-10",
+      "count": 0
+    },
+    {
+      "month": "2025-11",
+      "count": 0
+    },
+    {
+      "month": "2025-12",
+      "count": 0
+    },
+    {
+      "month": "2026-01",
+      "count": 0
+    },
+    {
+      "month": "2026-02",
+      "count": 0
+    },
+    {
+      "month": "2026-03",
+      "count": 0
+    },
+    {
+      "month": "2026-04",
+      "count": 0
+    },
+    {
+      "month": "2026-05",
+      "count": 0
+    },
+    {
+      "month": "2026-06",
+      "count": 0
+    },
+    {
+      "month": "2026-07",
+      "count": 0
+    },
+    {
+      "month": "2026-08",
+      "count": 23
+    },
+    {
+      "month": "2026-09",
+      "count": 26
+    }
+  ]
+}

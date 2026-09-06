@@ -1,0 +1,53 @@
+name: Lighthouse
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Serve site
+        run: npx http-server -p 8080 -s &
+
+      - name: Wait for server
+        run: npx wait-on http://127.0.0.1:8080 --timeout 30000
+
+      - name: Run Lighthouse
+        run: |
+          npx lighthouse http://127.0.0.1:8080/index.html \
+            --output=json --output-path=./lh-report.json \
+            --chrome-flags="--headless --no-sandbox" \
+            --only-categories=performance,accessibility,best-practices,seo \
+            --quiet
+
+      - name: Build badge JSON
+        run: |
+          node -e "
+            const fs = require('fs');
+            const report = JSON.parse(fs.readFileSync('./lh-report.json', 'utf8'));
+            const cats = report.categories;
+            const avg = Math.round(
+              (cats.performance.score + cats.accessibility.score +
+               cats['best-practices'].score + cats.seo.score) / 4 * 100
+            );
+            const color = avg >= 90 ? 'brightgreen' : avg >= 50 ? 'orange' : 'red';
+            const badge = { schemaVersion: 1, label: 'lighthouse', message: avg + '/100', color };
+            fs.mkdirSync('.github/badges', { recursive: true });
+            fs.writeFileSync('.github/badges/lighthouse.json', JSON.stringify(badge));
+          "
+
+      - name: Commit badge
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .github/badges/lighthouse.json
+          git diff --cached --quiet || git commit -m "chore: update Lighthouse badge [skip ci]"
+          git push
