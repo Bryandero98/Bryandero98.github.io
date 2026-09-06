@@ -32,6 +32,9 @@ window.I18N = {
     "projects.packetforge.desc":
       "Servidor MCP en producción con dashboard multi-proyecto, embeddings de Gemini y rate limiting propio.",
     "projects.packetforge.cta": "Ver en vivo →",
+    "projects.contribradar.desc":
+      "Radar de oportunidades OSS que verifica disponibilidad real de issues (no solo por etiqueta) y clasifica el sentimiento del mantenedor con Gemini.",
+    "projects.contribradar.cta": "Ver en vivo →",
     "projects.captionforge.desc":
       "Generador local de subtítulos con faster-whisper + ffmpeg. Publicado en PyPI, 140/140 tests en verde.",
     "projects.captionforge.cta": "pip install captionforge →",
@@ -92,6 +95,9 @@ window.I18N = {
     "projects.packetforge.desc":
       "MCP server in production with a multi-project dashboard, Gemini embeddings, and its own rate limiting.",
     "projects.packetforge.cta": "View live →",
+    "projects.contribradar.desc":
+      "OSS opportunity radar that verifies real issue availability (not just a label) and classifies maintainer sentiment with Gemini.",
+    "projects.contribradar.cta": "View live →",
     "projects.captionforge.desc":
       "Local subtitle generator with faster-whisper + ffmpeg. Published on PyPI, 140/140 tests passing.",
     "projects.captionforge.cta": "pip install captionforge →",
