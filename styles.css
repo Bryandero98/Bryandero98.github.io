@@ -299,10 +299,6 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* Recorta un pequeño ícono en el hombro de la foto (esquina inferior
-     derecha) que quedaba asomando justo en el borde del círculo. */
-  transform: scale(1.55);
-  transform-origin: 45% 32%;
 }
 
 .hero h1 {
