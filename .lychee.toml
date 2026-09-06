@@ -1,0 +1,14 @@
+# Config for lycheeverse/lychee-action (link-check.yml).
+#
+# Excluded domains are known false positives, not broken links:
+# - linkedin.com always returns HTTP 999 to automated requests (its own
+#   anti-bot status code), regardless of whether the profile is real.
+# - npmjs.com returns HTTP 403 to bot-like requests (bot-blocking), but
+#   resolves fine with a real browser user-agent.
+exclude = [
+  "^https://www\\.linkedin\\.com/",
+  "^https://www\\.npmjs\\.com/",
+]
+
+# Resolve root-relative links (e.g. href="/" in 404.html) against the repo root.
+root_dir = "."
