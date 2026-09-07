@@ -19,6 +19,8 @@ const GROUPS = [
   { key: "gridcraft", label: "gridcraft", match: (repo) => repo === "Rohan-Shridhar/gridcraft" },
   { key: "classhub", label: "ClassHub", match: (repo) => repo === "Hanu2908/ClassHub" },
   { key: "maka", label: "maka", match: (repo) => repo === "apache/maka" },
+  { key: "nodered", label: "node-red + ecosistema", match: (repo) => repo.startsWith("node-red/") },
+  { key: "drawora", label: "drawora", match: (repo) => repo === "pradipNP/drawora" },
 ];
 
 async function fetchAllMergedPRs(token) {
