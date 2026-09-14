@@ -21,6 +21,9 @@ const GROUPS = [
   { key: "maka", label: "maka", match: (repo) => repo === "apache/maka" },
   { key: "nodered", label: "node-red + ecosistema", match: (repo) => repo.startsWith("node-red/") },
   { key: "drawora", label: "drawora", match: (repo) => repo === "pradipNP/drawora" },
+  { key: "kestra", label: "Kestra", match: (repo) => repo === "kestra-io/kestra" },
+  { key: "f3nation", label: "F3 Nation", match: (repo) => repo === "F3-Nation/f3-nation" },
+  { key: "kubestellar", label: "KubeStellar docs", match: (repo) => repo === "kubestellar/docs" },
 ];
 
 async function fetchAllMergedPRs(token) {

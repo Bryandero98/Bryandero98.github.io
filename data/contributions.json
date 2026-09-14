@@ -1,6 +1,6 @@
 {
-  "total": 53,
-  "updatedAt": "2026-09-14T10:13:40.103Z",
+  "total": 56,
+  "updatedAt": "2026-09-14T19:27:21.016Z",
   "repos": [
     {
       "key": "portos",
@@ -108,6 +108,42 @@
         "number": 23,
         "repo": "pradipNP/drawora",
         "mergedAt": "2026-09-06T03:20:41Z"
+      }
+    },
+    {
+      "key": "kestra",
+      "label": "Kestra",
+      "count": 1,
+      "latest": {
+        "title": "fix(ui): don't collapse browser history on the tenant-redirect guard",
+        "url": "https://github.com/kestra-io/kestra/pull/19100",
+        "number": 19100,
+        "repo": "kestra-io/kestra",
+        "mergedAt": "2026-09-08T11:25:17Z"
+      }
+    },
+    {
+      "key": "f3nation",
+      "label": "F3 Nation",
+      "count": 1,
+      "latest": {
+        "title": "fix(api): add .output() schemas to event-tag router",
+        "url": "https://github.com/F3-Nation/f3-nation/pull/902",
+        "number": 902,
+        "repo": "F3-Nation/f3-nation",
+        "mergedAt": "2026-09-08T13:05:24Z"
+      }
+    },
+    {
+      "key": "kubestellar",
+      "label": "KubeStellar docs",
+      "count": 1,
+      "latest": {
+        "title": "🌱 fix(test): stop clearMocks:true from erasing Mermaid's module-load call",
+        "url": "https://github.com/kubestellar/docs/pull/6843",
+        "number": 6843,
+        "repo": "kubestellar/docs",
+        "mergedAt": "2026-09-09T22:41:22Z"
       }
     }
   ],
