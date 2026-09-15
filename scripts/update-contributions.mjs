@@ -23,7 +23,7 @@ const GROUPS = [
   { key: "drawora", label: "drawora", match: (repo) => repo === "pradipNP/drawora" },
   { key: "kestra", label: "Kestra", match: (repo) => repo === "kestra-io/kestra" },
   { key: "f3nation", label: "F3 Nation", match: (repo) => repo === "F3-Nation/f3-nation" },
-  { key: "kubestellar", label: "KubeStellar docs", match: (repo) => repo === "kubestellar/docs" },
+  { key: "kubestellar", label: "KubeStellar", match: (repo) => repo.startsWith("kubestellar/") },
 ];
 
 async function fetchAllMergedPRs(token) {

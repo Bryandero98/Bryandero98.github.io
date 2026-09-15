@@ -20,7 +20,7 @@ window.I18N = {
     "hero.title": "Bryan Delgado",
     "hero.tagline":
       "Contribuidor open-source · construyo herramientas pequeñas y locales, y voy resolviendo buenos issues por el camino.",
-    "hero.counterLabel": "PRs mergeados en 13 repositorios",
+    "hero.counterLabel": "PRs mergeados en 20 repositorios",
 
     "profile.heading": "Sobre mí",
     "profile.body":
@@ -44,7 +44,7 @@ window.I18N = {
 
     "contributions.heading": "Contribuciones open-source",
     "contributions.intro":
-      "49 pull requests mergeados, verificables en vivo en GitHub con un clic en cada contador.",
+      "58 pull requests mergeados, verificables en vivo en GitHub con un clic en cada contador.",
     "contributions.hedgehog.label": "hedgehog + ecosistema",
 
     "stack.heading": "Stack técnico",
@@ -83,7 +83,7 @@ window.I18N = {
     "hero.title": "Bryan Delgado",
     "hero.tagline":
       "Open-source contributor · I build small, local-first tools and pick up good bugs along the way.",
-    "hero.counterLabel": "merged PRs across 13 repositories",
+    "hero.counterLabel": "merged PRs across 20 repositories",
 
     "profile.heading": "About me",
     "profile.body":
@@ -107,7 +107,7 @@ window.I18N = {
 
     "contributions.heading": "Open-source contributions",
     "contributions.intro":
-      "49 merged pull requests, verifiable live on GitHub with one click on each counter.",
+      "58 merged pull requests, verifiable live on GitHub with one click on each counter.",
     "contributions.hedgehog.label": "hedgehog + ecosystem",
 
     "stack.heading": "Tech stack",
