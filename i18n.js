@@ -44,7 +44,7 @@ window.I18N = {
 
     "contributions.heading": "Contribuciones open-source",
     "contributions.intro":
-      "58 pull requests mergeados, verificables en vivo en GitHub con un clic en cada contador.",
+      "59 pull requests mergeados, verificables en vivo en GitHub con un clic en cada contador.",
     "contributions.hedgehog.label": "hedgehog + ecosistema",
 
     "stack.heading": "Stack técnico",
@@ -107,7 +107,7 @@ window.I18N = {
 
     "contributions.heading": "Open-source contributions",
     "contributions.intro":
-      "58 merged pull requests, verifiable live on GitHub with one click on each counter.",
+      "59 merged pull requests, verifiable live on GitHub with one click on each counter.",
     "contributions.hedgehog.label": "hedgehog + ecosystem",
 
     "stack.heading": "Tech stack",

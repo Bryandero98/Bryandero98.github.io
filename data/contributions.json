@@ -1,6 +1,6 @@
 {
-  "total": 58,
-  "updatedAt": "2026-09-15T04:47:03.705Z",
+  "total": 59,
+  "updatedAt": "2026-09-15T04:55:46.011Z",
   "repos": [
     {
       "key": "portos",
@@ -137,13 +137,13 @@
     {
       "key": "kubestellar",
       "label": "KubeStellar",
-      "count": 3,
+      "count": 4,
       "latest": {
-        "title": "fix: compile link-checker and typo-checker gh-aw workflows",
-        "url": "https://github.com/kubestellar/docs/pull/6956",
-        "number": 6956,
+        "title": "fix: resolve type-check failures breaking every production build",
+        "url": "https://github.com/kubestellar/docs/pull/6958",
+        "number": 6958,
         "repo": "kubestellar/docs",
-        "mergedAt": "2026-09-15T02:44:02Z"
+        "mergedAt": "2026-09-15T04:53:19Z"
       }
     }
   ],
@@ -194,7 +194,7 @@
     },
     {
       "month": "2026-09",
-      "count": 35
+      "count": 36
     }
   ]
 }
