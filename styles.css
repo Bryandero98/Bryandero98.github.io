@@ -479,17 +479,6 @@ p {
   margin-top: 1.5rem;
 }
 
-.contrib-latest {
-  display: block;
-  margin-top: 0.35rem;
-  font-size: 0.7rem;
-  color: var(--text-muted);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 100%;
-}
-
 .badge-link {
   margin-top: 0 !important;
   line-height: 0;
@@ -535,44 +524,223 @@ p {
   color: var(--accent);
 }
 
-/* ===== Contributions ===== */
-.contributions-grid {
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+/* ===== Tabla de contribuciones ===== */
+.contrib-controls {
+  margin-top: 1.5rem;
 }
 
-.contrib-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.35rem;
+.contrib-search {
+  width: 100%;
+  max-width: 280px;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--text);
   background: var(--bg-elevated);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 1.25rem 0.75rem;
-  text-decoration: none;
-  color: var(--text);
-  text-align: center;
-  transition:
-    transform var(--transition),
-    border-color var(--transition);
+  padding: 0.5rem 0.8rem;
+  transition: border-color var(--transition);
 }
 
-.contrib-card:hover {
-  transform: translateY(-3px);
+.contrib-search:focus-visible {
+  outline: none;
   border-color: var(--accent);
 }
 
-.contrib-card strong {
-  font-family: var(--font-mono);
-  font-size: 1.75rem;
-  color: var(--accent);
-  font-variant-numeric: tabular-nums;
+.table-wrap {
+  margin-top: 0.9rem;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
 }
 
-.contrib-card span {
+.contrib-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.contrib-table th,
+.contrib-table td {
+  padding: 0.6rem 0.9rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.contrib-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.contrib-table thead th {
+  background: var(--bg);
+  padding: 0;
+}
+
+.sort-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  padding: 0.6rem 0.9rem;
+  cursor: pointer;
+  transition: color var(--transition);
+}
+
+.sort-btn:hover,
+.sort-btn.active {
+  color: var(--accent);
+}
+
+.sort-btn.active::after {
+  content: attr(data-sort-dir);
+  font-size: 0.7rem;
+}
+
+.sort-btn[data-sort-dir="asc"]::after {
+  content: "↑";
+}
+
+.sort-btn[data-sort-dir="desc"]::after {
+  content: "↓";
+}
+
+.contrib-table a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.contrib-table a:hover {
+  color: var(--accent-2);
+  text-decoration: underline;
+}
+
+.contrib-count {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  color: var(--accent);
+}
+
+.contrib-latest-cell a {
+  display: inline-block;
+  max-width: 360px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: bottom;
   font-size: 0.85rem;
   color: var(--text-muted);
+}
+
+.contrib-empty {
+  margin: 0;
+  padding: 1rem 0.9rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* ===== Highlights de CI/automatización ===== */
+.subheading {
+  margin-top: 2.25rem;
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+.subheading-intro {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+
+.highlight-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.9rem 0 0 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.highlight-list li {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-elevated);
+}
+
+.highlight-list a {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0.9rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  text-decoration: none;
+}
+
+.highlight-list a:hover {
+  color: var(--text);
+}
+
+.chip-automation {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  padding: 0.15rem 0.5rem;
+}
+
+/* ===== Lenguajes ===== */
+.lang-bars {
+  display: grid;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+}
+
+.lang-bar {
+  display: grid;
+  grid-template-columns: 7rem 1fr 3.5rem;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.lang-bar-label {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text);
+}
+
+.lang-bar-track {
+  height: 0.6rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.lang-bar-fill {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  border-radius: 999px 0 0 999px;
+}
+
+.lang-bar-pct {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
 }
 
 /* ===== Stack ===== */

@@ -107,7 +107,7 @@
       </span>
       <h1 data-i18n="hero.title">Bryan Delgado</h1>
       <p class="tagline" data-i18n="hero.tagline">
-        Contribuidor open-source · construyo herramientas pequeñas y locales, y voy resolviendo buenos issues por el camino.
+        Automatizo procesos con código — CLIs, servidores MCP y arreglos de CI — y contribuyo en proyectos open-source reales resolviendo bugs de producción.
       </p>
       <a
         class="counter-badge"
@@ -128,7 +128,10 @@
         correcciones y mejoras concretas dentro de proyectos ya existentes — bugs
         reales, tests que faltaban, endpoints mal validados — y, en paralelo, un puñado
         de herramientas propias que publico cuando quedan listas para que alguien más
-        las use.
+        las use. Mi hilo conductor es la automatización: reemplazar procesos manuales
+        repetitivos — verificar issues a mano, revisar builds rotos, generar
+        subtítulos — por herramientas de línea de comandos y servidores MCP que hacen
+        ese trabajo en una sola llamada.
       </p>
     </section>
 
@@ -161,7 +164,9 @@
           <p data-i18n="projects.contribradar.desc">
             Radar de oportunidades OSS que verifica disponibilidad real de
             issues (no solo por etiqueta) y clasifica el sentimiento del
-            mantenedor con Gemini.
+            mantenedor con Gemini. Nació de un problema real: verificar a
+            mano ~40 issues en 5 organizaciones tomaba cerca de una hora;
+            contrib-radar lo resuelve con una sola llamada MCP.
           </p>
           <a href="https://contrib-radar.onrender.com" target="_blank" rel="noopener noreferrer" data-i18n="projects.contribradar.cta">
             Ver en vivo →
@@ -243,43 +248,74 @@
         loading="lazy"
       />
 
-      <div class="card-grid contributions-grid" id="contributionsGrid">
+      <div class="contrib-controls">
+        <input
+          type="search"
+          id="contribSearch"
+          class="contrib-search"
+          data-i18n-attr="placeholder:contributions.searchPlaceholder;aria-label:contributions.searchPlaceholder"
+          placeholder="Buscar repositorio…"
+          aria-label="Buscar repositorio"
+        />
+      </div>
+      <div class="table-wrap">
+        <table class="contrib-table" id="contribTable">
+          <thead>
+            <tr>
+              <th scope="col">
+                <button type="button" class="sort-btn" data-sort="label" data-i18n="contributions.table.repo">Repositorio</button>
+              </th>
+              <th scope="col">
+                <button type="button" class="sort-btn active" data-sort="count" data-sort-dir="desc" data-i18n="contributions.table.prs">PRs mergeados</button>
+              </th>
+              <th scope="col" data-i18n="contributions.table.latest">Último PR</th>
+            </tr>
+          </thead>
+          <tbody id="contribTableBody">
+            <!-- Poblada por script.js a partir de data/contributions.json -->
+          </tbody>
+        </table>
+        <p class="contrib-empty" id="contribEmpty" hidden data-i18n="contributions.table.empty">
+          Ningún repositorio coincide con la búsqueda.
+        </p>
+      </div>
 
-        <a class="contrib-card" data-repo-key="portos" href="https://github.com/atomantic/PortOS/pulls?q=is%3Apr+is%3Amerged+author%3ABryandero98" target="_blank" rel="noopener noreferrer">
-          <strong>25</strong>
-          <span>PortOS</span>
-        </a>
+      <h3 class="subheading" data-i18n="contributions.automation.heading">Arreglos de CI y automatización</h3>
+      <p class="subheading-intro" data-i18n="contributions.automation.intro">
+        Una selección de PRs mergeados que no son bugs de producto, sino builds e
+        integraciones rotas — el mismo tipo de trabajo que hago en mis propias
+        herramientas.
+      </p>
+      <ul class="highlight-list">
+        <li>
+          <a href="https://github.com/kubestellar/docs/pull/6958" target="_blank" rel="noopener noreferrer">
+            <span class="chip-automation" data-i18n="contributions.automation.tag">CI</span>
+            kubestellar/docs #6958 — fix: resolve type-check failures breaking every production build
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/kubestellar/docs/pull/6956" target="_blank" rel="noopener noreferrer">
+            <span class="chip-automation" data-i18n="contributions.automation.tag">CI</span>
+            kubestellar/docs #6956 — fix: compile link-checker and typo-checker gh-aw workflows
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/kubestellar/homebrew-tap/pull/448" target="_blank" rel="noopener noreferrer">
+            <span class="chip-automation" data-i18n="contributions.automation.tag">CI</span>
+            kubestellar/homebrew-tap #448 — chore: remove stale .disabled workflow files
+          </a>
+        </li>
+      </ul>
+    </section>
 
-        <a class="contrib-card" data-repo-key="hedgehog" href="https://github.com/search?q=is%3Apr+is%3Amerged+author%3ABryandero98+org%3Askyf0xx&type=pullrequests" target="_blank" rel="noopener noreferrer">
-          <strong>17</strong>
-          <span data-i18n="contributions.hedgehog.label">hedgehog + ecosistema</span>
-        </a>
-
-        <a class="contrib-card" data-repo-key="athlead" href="https://github.com/Harsh-vardhan09/AthLead/pulls?q=is%3Apr+is%3Amerged+author%3ABryandero98" target="_blank" rel="noopener noreferrer">
-          <strong>2</strong>
-          <span>AthLead</span>
-        </a>
-
-        <a class="contrib-card" data-repo-key="huihui" href="https://github.com/chiffon-0504/huihui.dev-beta/pulls?q=is%3Apr+is%3Amerged+author%3ABryandero98" target="_blank" rel="noopener noreferrer">
-          <strong>2</strong>
-          <span>huihui.dev-beta</span>
-        </a>
-
-        <a class="contrib-card" data-repo-key="gridcraft" href="https://github.com/Rohan-Shridhar/gridcraft/pulls?q=is%3Apr+is%3Amerged+author%3ABryandero98" target="_blank" rel="noopener noreferrer">
-          <strong>1</strong>
-          <span>gridcraft</span>
-        </a>
-
-        <a class="contrib-card" data-repo-key="classhub" href="https://github.com/Hanu2908/ClassHub/pulls?q=is%3Apr+is%3Amerged+author%3ABryandero98" target="_blank" rel="noopener noreferrer">
-          <strong>1</strong>
-          <span>ClassHub</span>
-        </a>
-
-        <a class="contrib-card" data-repo-key="maka" href="https://github.com/apache/maka/pulls?q=is%3Apr+is%3Amerged+author%3ABryandero98" target="_blank" rel="noopener noreferrer">
-          <strong>1</strong>
-          <span>maka</span>
-        </a>
-
+    <!-- ===== LENGUAJES ===== -->
+    <section id="languages" class="section">
+      <h2 data-i18n="languages.heading">Lenguajes en mis contribuciones</h2>
+      <p data-i18n="languages.intro">
+        Lenguaje principal del repositorio, ponderado por PRs mergeados en cada uno.
+      </p>
+      <div class="lang-bars" id="langBars">
+        <!-- Poblada por script.js a partir de data/contributions.json -->
       </div>
     </section>
 

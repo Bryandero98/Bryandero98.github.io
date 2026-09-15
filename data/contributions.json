@@ -1,6 +1,6 @@
 {
   "total": 59,
-  "updatedAt": "2026-09-15T09:42:44.960Z",
+  "updatedAt": "2026-09-15T19:17:52.269Z",
   "repos": [
     {
       "key": "portos",
@@ -194,7 +194,24 @@
     },
     {
       "month": "2026-09",
-      "count": 36
+      "count": 38
+    }
+  ],
+  "languages": [
+    {
+      "name": "JavaScript",
+      "count": 51,
+      "pct": 86.4
+    },
+    {
+      "name": "TypeScript",
+      "count": 7,
+      "pct": 11.9
+    },
+    {
+      "name": "Java",
+      "count": 1,
+      "pct": 1.7
     }
   ]
 }

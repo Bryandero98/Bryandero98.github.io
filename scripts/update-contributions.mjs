@@ -55,6 +55,42 @@ function repoFromUrl(repositoryUrl) {
   return repositoryUrl.split("/").slice(-2).join("/");
 }
 
+// Lenguaje principal del repo representativo de cada grupo (el de su PR más
+// reciente), ponderado por la cantidad de PRs mergeados de ese grupo. Es una
+// aproximación deliberada -no lee el lenguaje real de cada PR individual-
+// pero es barata (una llamada por grupo) y suficiente para el desglose que
+// se muestra en el sitio.
+async function fetchRepoLanguage(repo, token) {
+  const res = await fetch(`https://api.github.com/repos/${repo}`, {
+    headers: {
+      Accept: "application/vnd.github+json",
+      Authorization: token ? `Bearer ${token}` : undefined,
+      "User-Agent": USERNAME,
+    },
+  });
+  if (!res.ok) return null;
+  const data = await res.json();
+  return data.language || null;
+}
+
+async function buildLanguageBreakdown(repos, token) {
+  const totals = new Map();
+  for (const group of repos) {
+    if (!group.latest) continue;
+    const lang = await fetchRepoLanguage(group.latest.repo, token);
+    if (!lang) continue;
+    totals.set(lang, (totals.get(lang) || 0) + group.count);
+  }
+  const total = [...totals.values()].reduce((sum, n) => sum + n, 0);
+  return [...totals.entries()]
+    .map(([name, count]) => ({
+      name,
+      count,
+      pct: total ? Math.round((count / total) * 1000) / 10 : 0,
+    }))
+    .sort((a, b) => b.count - a.count);
+}
+
 function buildContributions(items) {
   const byGroup = new Map();
   for (const group of GROUPS) {
@@ -151,6 +187,7 @@ async function main() {
   const token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN;
   const items = await fetchAllMergedPRs(token);
   const contributions = buildContributions(items);
+  contributions.languages = await buildLanguageBreakdown(contributions.repos, token);
 
   await mkdir(path.join(ROOT, "data"), { recursive: true });
   await mkdir(path.join(ROOT, "assets"), { recursive: true });

@@ -350,8 +350,156 @@
   // Generado y refrescado por un GitHub Action programado
   // (.github/workflows/update-contributions.yml). Es una mejora progresiva:
   // si el fetch falla (offline, CORS al abrir el archivo con file://, o el
-  // archivo aún no existe la primera vez), se deja tal cual el contenido
-  // estático ya embebido en el HTML - nunca rompe nada.
+  // archivo aún no existe la primera vez), la tabla/gráfico de lenguajes
+  // simplemente quedan vacíos - nunca rompe nada más de la página.
+  //
+  // Los grupos que agrupan varios repos bajo una sola etiqueta (hedgehog,
+  // node-red, kubestellar) no tienen un único "repo" en los datos - se
+  // enlazan a la misma búsqueda de GitHub por organización que ya se usaba
+  // en las tarjetas estáticas originales.
+  var GROUP_SEARCH_URLS = {
+    hedgehog:
+      "https://github.com/search?q=is%3Apr+is%3Amerged+author%3ABryandero98+org%3Askyf0xx&type=pullrequests",
+    nodered:
+      "https://github.com/search?q=is%3Apr+is%3Amerged+author%3ABryandero98+org%3Anode-red&type=pullrequests",
+    kubestellar:
+      "https://github.com/search?q=is%3Apr+is%3Amerged+author%3ABryandero98+org%3Akubestellar&type=pullrequests",
+  };
+
+  function contribGroupUrl(repo) {
+    if (GROUP_SEARCH_URLS[repo.key]) return GROUP_SEARCH_URLS[repo.key];
+    if (repo.latest && repo.latest.repo) {
+      return (
+        "https://github.com/" +
+        repo.latest.repo +
+        "/pulls?q=is%3Apr+is%3Amerged+author%3ABryandero98"
+      );
+    }
+    return "https://github.com/Bryandero98";
+  }
+
+  var contribSortKey = "count";
+  var contribSortDir = "desc";
+
+  function renderContribTable(repos) {
+    var tbody = document.getElementById("contribTableBody");
+    var emptyMsg = document.getElementById("contribEmpty");
+    if (!tbody) return;
+
+    var query = "";
+    var search = document.getElementById("contribSearch");
+    if (search) query = search.value.trim().toLowerCase();
+
+    var filtered = repos.filter(function (repo) {
+      return !query || repo.label.toLowerCase().indexOf(query) !== -1;
+    });
+
+    var sorted = filtered.slice().sort(function (a, b) {
+      var dir = contribSortDir === "asc" ? 1 : -1;
+      if (contribSortKey === "label") {
+        return a.label.localeCompare(b.label) * dir;
+      }
+      return (a.count - b.count) * dir;
+    });
+
+    tbody.innerHTML = "";
+    sorted.forEach(function (repo) {
+      var tr = document.createElement("tr");
+
+      var repoCell = document.createElement("td");
+      var link = document.createElement("a");
+      link.href = contribGroupUrl(repo);
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.textContent = repo.label;
+      repoCell.appendChild(link);
+
+      var countCell = document.createElement("td");
+      countCell.className = "contrib-count";
+      countCell.textContent = repo.count;
+
+      var latestCell = document.createElement("td");
+      latestCell.className = "contrib-latest-cell";
+      if (repo.latest) {
+        var latestLink = document.createElement("a");
+        latestLink.href = repo.latest.url;
+        latestLink.target = "_blank";
+        latestLink.rel = "noopener noreferrer";
+        latestLink.textContent = "#" + repo.latest.number + " " + repo.latest.title;
+        latestCell.appendChild(latestLink);
+      }
+
+      tr.appendChild(repoCell);
+      tr.appendChild(countCell);
+      tr.appendChild(latestCell);
+      tbody.appendChild(tr);
+    });
+
+    if (emptyMsg) emptyMsg.hidden = sorted.length > 0;
+  }
+
+  function initContribTableControls(repos) {
+    var search = document.getElementById("contribSearch");
+    if (search) {
+      search.addEventListener("input", function () {
+        renderContribTable(repos);
+      });
+    }
+
+    var table = document.getElementById("contribTable");
+    if (!table) return;
+    table.querySelectorAll(".sort-btn").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var key = btn.getAttribute("data-sort");
+        if (contribSortKey === key) {
+          contribSortDir = contribSortDir === "asc" ? "desc" : "asc";
+        } else {
+          contribSortKey = key;
+          contribSortDir = key === "label" ? "asc" : "desc";
+        }
+
+        table.querySelectorAll(".sort-btn").forEach(function (b) {
+          b.classList.toggle("active", b === btn);
+          b.removeAttribute("data-sort-dir");
+        });
+        btn.setAttribute("data-sort-dir", contribSortDir);
+
+        renderContribTable(repos);
+      });
+    });
+  }
+
+  function renderLangBars(languages) {
+    var container = document.getElementById("langBars");
+    if (!container || !languages || !languages.length) return;
+
+    container.innerHTML = "";
+    languages.forEach(function (lang) {
+      var row = document.createElement("div");
+      row.className = "lang-bar";
+
+      var label = document.createElement("span");
+      label.className = "lang-bar-label";
+      label.textContent = lang.name;
+
+      var track = document.createElement("span");
+      track.className = "lang-bar-track";
+      var fill = document.createElement("span");
+      fill.className = "lang-bar-fill";
+      fill.style.width = lang.pct + "%";
+      track.appendChild(fill);
+
+      var pct = document.createElement("span");
+      pct.className = "lang-bar-pct";
+      pct.textContent = lang.pct + "%";
+
+      row.appendChild(label);
+      row.appendChild(track);
+      row.appendChild(pct);
+      container.appendChild(row);
+    });
+  }
+
   function loadContributionsData() {
     fetch("data/contributions.json")
       .then(function (res) {
@@ -364,22 +512,10 @@
         var counterEl = document.getElementById("prCount");
         if (counterEl) counterEl.textContent = data.total;
 
-        (data.repos || []).forEach(function (repo) {
-          var card = document.querySelector(
-            '.contrib-card[data-repo-key="' + repo.key + '"]'
-          );
-          if (!card) return;
-
-          var strong = card.querySelector("strong");
-          if (strong) strong.textContent = repo.count;
-
-          if (repo.latest && !card.querySelector(".contrib-latest")) {
-            var detail = document.createElement("span");
-            detail.className = "contrib-latest";
-            detail.textContent = "#" + repo.latest.number + " " + repo.latest.title;
-            card.appendChild(detail);
-          }
-        });
+        var repos = data.repos || [];
+        renderContribTable(repos);
+        initContribTableControls(repos);
+        renderLangBars(data.languages || []);
       })
       .catch(function () {
         // ver comentario de la función: degradación silenciosa e intencional.
