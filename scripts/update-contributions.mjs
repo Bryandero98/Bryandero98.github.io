@@ -24,6 +24,10 @@ const GROUPS = [
   { key: "kestra", label: "Kestra", match: (repo) => repo === "kestra-io/kestra" },
   { key: "f3nation", label: "F3 Nation", match: (repo) => repo === "F3-Nation/f3-nation" },
   { key: "kubestellar", label: "KubeStellar", match: (repo) => repo.startsWith("kubestellar/") },
+  { key: "argo", label: "Argo", match: (repo) => repo.startsWith("argoproj/") },
+  { key: "tekton", label: "Tekton", match: (repo) => repo.startsWith("tektoncd/") },
+  { key: "camunda", label: "Camunda", match: (repo) => repo === "camunda/camunda" },
+  { key: "cubrid", label: "CUBRID cookbook", match: (repo) => repo.startsWith("cubrid-lab/") },
 ];
 
 async function fetchAllMergedPRs(token) {

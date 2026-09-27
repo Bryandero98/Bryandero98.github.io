@@ -354,7 +354,7 @@
   // simplemente quedan vacíos - nunca rompe nada más de la página.
   //
   // Los grupos que agrupan varios repos bajo una sola etiqueta (hedgehog,
-  // node-red, kubestellar) no tienen un único "repo" en los datos - se
+  // node-red, kubestellar, argo, tekton, cubrid) no tienen un único "repo" en los datos - se
   // enlazan a la misma búsqueda de GitHub por organización que ya se usaba
   // en las tarjetas estáticas originales.
   var GROUP_SEARCH_URLS = {
@@ -364,6 +364,12 @@
       "https://github.com/search?q=is%3Apr+is%3Amerged+author%3ABryandero98+org%3Anode-red&type=pullrequests",
     kubestellar:
       "https://github.com/search?q=is%3Apr+is%3Amerged+author%3ABryandero98+org%3Akubestellar&type=pullrequests",
+    argo:
+      "https://github.com/search?q=is%3Apr+is%3Amerged+author%3ABryandero98+org%3Aargoproj&type=pullrequests",
+    tekton:
+      "https://github.com/search?q=is%3Apr+is%3Amerged+author%3ABryandero98+org%3Atektoncd&type=pullrequests",
+    cubrid:
+      "https://github.com/search?q=is%3Apr+is%3Amerged+author%3ABryandero98+org%3Acubrid-lab&type=pullrequests",
   };
 
   function contribGroupUrl(repo) {
