@@ -1,6 +1,6 @@
 {
-  "total": 62,
-  "updatedAt": "2026-09-28T11:21:19.738Z",
+  "total": 60,
+  "updatedAt": "2026-09-29T10:59:38.445Z",
   "repos": [
     {
       "key": "portos",
@@ -36,18 +36,6 @@
         "number": 118,
         "repo": "Harsh-vardhan09/AthLead",
         "mergedAt": "2026-08-26T19:12:45Z"
-      }
-    },
-    {
-      "key": "huihui",
-      "label": "huihui.dev-beta",
-      "count": 2,
-      "latest": {
-        "title": "test: cover localized About lightbox accessible names",
-        "url": "https://github.com/chiffon-0504/huihui.dev-beta/pull/179",
-        "number": 179,
-        "repo": "chiffon-0504/huihui.dev-beta",
-        "mergedAt": "2026-09-05T21:16:09Z"
       }
     },
     {
@@ -218,34 +206,34 @@
     },
     {
       "month": "2026-09",
-      "count": 45
+      "count": 43
     }
   ],
   "languages": [
     {
       "name": "JavaScript",
-      "count": 51,
-      "pct": 82.3
+      "count": 49,
+      "pct": 81.7
     },
     {
       "name": "TypeScript",
       "count": 7,
-      "pct": 11.3
+      "pct": 11.7
     },
     {
       "name": "Java",
       "count": 2,
-      "pct": 3.2
+      "pct": 3.3
     },
     {
       "name": "Go",
       "count": 1,
-      "pct": 1.6
+      "pct": 1.7
     },
     {
       "name": "Python",
       "count": 1,
-      "pct": 1.6
+      "pct": 1.7
     }
   ]
 }
