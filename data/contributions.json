@@ -1,6 +1,6 @@
 {
   "total": 60,
-  "updatedAt": "2026-09-30T10:50:11.740Z",
+  "updatedAt": "2026-10-01T11:16:43.106Z",
   "repos": [
     {
       "key": "portos",
@@ -161,10 +161,6 @@
   ],
   "monthly": [
     {
-      "month": "2025-10",
-      "count": 0
-    },
-    {
       "month": "2025-11",
       "count": 0
     },
@@ -207,6 +203,10 @@
     {
       "month": "2026-09",
       "count": 43
+    },
+    {
+      "month": "2026-10",
+      "count": 0
     }
   ],
   "languages": [
