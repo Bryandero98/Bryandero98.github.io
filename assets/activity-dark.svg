@@ -23,6 +23,6 @@
     <text x="565.3" y="154" font-size="9" fill="#8b949e" text-anchor="middle" font-family="monospace">08</text>
     <rect x="598.7" y="12.0" width="50.7" height="124.0" rx="2" fill="#3fb950" fill-opacity="0.9"><title>2026-09: 43 PRs</title></rect>
     <text x="624.0" y="154" font-size="9" fill="#8b949e" text-anchor="middle" font-family="monospace">09</text>
-    <rect x="657.3" y="61.0" width="50.7" height="75.0" rx="2" fill="#3fb950" fill-opacity="0.9"><title>2026-10: 26 PRs</title></rect>
+    <rect x="657.3" y="38.0" width="50.7" height="98.0" rx="2" fill="#3fb950" fill-opacity="0.9"><title>2026-10: 34 PRs</title></rect>
     <text x="682.7" y="154" font-size="9" fill="#8b949e" text-anchor="middle" font-family="monospace">10</text>
 </svg>
