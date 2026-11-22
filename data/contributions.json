@@ -1,6 +1,6 @@
 {
   "total": 60,
-  "updatedAt": "2026-11-21T13:09:52.467Z",
+  "updatedAt": "2026-11-22T12:57:18.309Z",
   "repos": [
     {
       "key": "portos",
@@ -217,13 +217,18 @@
     },
     {
       "name": "TypeScript",
-      "count": 7,
-      "pct": 11.7
+      "count": 6,
+      "pct": 10
     },
     {
       "name": "Java",
       "count": 2,
       "pct": 3.3
+    },
+    {
+      "name": "Rust",
+      "count": 1,
+      "pct": 1.7
     },
     {
       "name": "Go",
